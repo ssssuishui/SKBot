@@ -85,7 +85,7 @@ void ProductionManager::update()
 				}
 			}
 		}
-		WorkerManager::instance().finishedWithCombatWorkers();
+		WorkerManager::Instance().finishedWithCombatWorkers();
 	}
 
 	// if they have cloaked units get a new goal asap
