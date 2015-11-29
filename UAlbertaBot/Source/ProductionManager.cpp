@@ -360,8 +360,23 @@ void ProductionManager::create(BWAPI::Unit producer, BuildOrderItem & item)
         && t.getUnitType() != BWAPI::UnitTypes::Zerg_Greater_Spire
         && !t.getUnitType().isAddon())
     {
-        // send the building task to the building manager
-        BuildingManager::Instance().addBuildingTask(t.getUnitType(), BWAPI::Broodwar->self()->getStartLocation(), item.isGasSteal);
+		//if a bunker for Terran_Custom
+		if ((t.getUnitType() == BWAPI::UnitTypes::Terran_Bunker) && (Config::Strategy::StrategyName == "Terran_Custom"))
+		{
+			for (auto & unit : BWAPI::Broodwar->self()->getUnits())
+			{
+				if (unit->isUnderAttack())
+				{
+					BuildingManager::Instance().addBuildingTask(t.getUnitType(), BWAPI::TilePosition(unit->getPosition()), item.isGasSteal);
+					break;
+				}
+			}
+		}
+		else
+		{
+			// send the building task to the building manager
+			BuildingManager::Instance().addBuildingTask(t.getUnitType(), BWAPI::Broodwar->self()->getStartLocation(), item.isGasSteal);
+		}
     }
     else if (t.getUnitType().isAddon())
     {
