@@ -421,12 +421,10 @@ BWAPI::TilePosition BuildingManager::getBuildingLocation(const Building & b)
 		{
 			if (unit->isUnderAttack())
 			{
-				b.desiredPosition = unit->getPosition();
 				return BuildingPlacer::Instance().getBuildLocationNear(b, 1, false);
 				break;
 			}
 		}
-
 	}
 	
     if (b.type.isRefinery())
