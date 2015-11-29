@@ -69,25 +69,6 @@ void ProductionManager::update()
 		_queue.queueAsHighestPriority(MetaType(BWAPI::Broodwar->self()->getRace().getSupplyProvider()), true);
 	}
 
-	//for strategy "Terran_Custom"
-	//if worker >= 4, bunker <2, any unit is under attack, build a bunker near attacked unit
-	if ((Config::Strategy::StrategyName == "Terran_Custom") && (BWAPI::Broodwar->self()->getRace() == BWAPI::Races::Terran)
-		&& (WorkerData().getNumWorkers() >= 4))
-	{
-		if (BWAPI::Broodwar->self()->allUnitCount(BWAPI::UnitTypes::Terran_Bunker) < 2)
-		{
-			for (auto & unit : BWAPI::Broodwar->self()->getUnits())
-			{
-				if (unit->isUnderAttack())
-				{
-					_queue.queueAsHighestPriority(MetaType(BWAPI::UnitTypes::Terran_Bunker), true);
-					_queue.queueAsHighestPriority(MetaType(BWAPI::UnitTypes::Terran_Bunker), true);
-				}
-			}
-		}
-		WorkerManager::instance().finishedWithCombatWorkers();
-	}
-
 	// if they have cloaked units get a new goal asap
 	if (!_enemyCloakedDetected && InformationManager::Instance().enemyHasCloakedUnits())
 	{

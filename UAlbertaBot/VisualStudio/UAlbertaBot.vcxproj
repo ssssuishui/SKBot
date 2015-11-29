@@ -153,7 +153,6 @@
     <ClCompile Include="..\Source\UnitUtil.cpp" />
     <ClCompile Include="..\source\WorkerData.cpp" />
     <ClCompile Include="..\source\WorkerManager.cpp" />
-    <ClCompile Include="Science_vesselManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\AutoObserver.h" />
@@ -196,7 +195,6 @@
     <ClInclude Include="..\Source\UnitUtil.h" />
     <ClInclude Include="..\source\WorkerData.h" />
     <ClInclude Include="..\source\WorkerManager.h" />
-    <ClInclude Include="Science_vesselManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
