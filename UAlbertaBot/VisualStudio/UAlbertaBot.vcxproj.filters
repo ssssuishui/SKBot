@@ -153,9 +153,6 @@
     <ClCompile Include="..\Source\Logger.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="Science_vesselManager.cpp">
-      <Filter>game\combat\micro</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\CombatCommander.h">
@@ -277,9 +274,6 @@
     </ClInclude>
     <ClInclude Include="..\Source\Logger.h">
       <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="Science_vesselManager.h">
-      <Filter>game\combat\micro</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
