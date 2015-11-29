@@ -353,14 +353,14 @@ void ProductionManager::create(BWAPI::Unit producer, BuildOrderItem & item)
 
     MetaType t = item.metaType;
 
-    // if we're dealing with a building
+    //if we're dealing with a building
     if (t.isUnit() && t.getUnitType().isBuilding() 
         && t.getUnitType() != BWAPI::UnitTypes::Zerg_Lair 
         && t.getUnitType() != BWAPI::UnitTypes::Zerg_Hive
         && t.getUnitType() != BWAPI::UnitTypes::Zerg_Greater_Spire
         && !t.getUnitType().isAddon())
     {
-		//if a bunker for Terran_Custom
+		//if a bunker for Terran_Custom 
 		if ((t.getUnitType() == BWAPI::UnitTypes::Terran_Bunker) && (Config::Strategy::StrategyName == "Terran_Custom"))
 		{
 			for (auto & unit : BWAPI::Broodwar->self()->getUnits())
@@ -378,6 +378,7 @@ void ProductionManager::create(BWAPI::Unit producer, BuildOrderItem & item)
 			BuildingManager::Instance().addBuildingTask(t.getUnitType(), BWAPI::Broodwar->self()->getStartLocation(), item.isGasSteal);
 		}
     }
+
     else if (t.getUnitType().isAddon())
     {
         //BWAPI::TilePosition addonPosition(producer->getTilePosition().x + producer->getType().tileWidth(), producer->getTilePosition().y + producer->getType().tileHeight() - t.unitType.tileHeight());
